@@ -1,10 +1,15 @@
-FROM mono:latest
-MAINTAINER Aaronstar Mcclure <jfeldt19@gmail.com>
+FROM ubuntu:16.04
 
-RUN apk update \
-    && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates openssl git tar bash \
-    && adduser -D -h /home/container container
+MAINTAINER Bryce A. <brycea@rapidnetworks.org>
+
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y lib32gcc1 lib32stdc++6 git wget unzip curl xz-utils && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
+    echo "deb http://download.mono-project.com/repo/ubuntu xenial main" > /etc/apt/sources.list.d/mono-official.list && \
+    apt update && \
+    apt install -y mono-devel mono-complete && \
+    useradd -d /home/container -m container
 
 USER container
 ENV  USER container
