@@ -1,4 +1,4 @@
-FROM 2.0.5-runtime-jessie
+FROM microsoft/dotnet:2.0.5-runtime-jessie
 Maintainer Aaronstar Mcclure <jfeldt19@gmail.com>
 
 RUN apk update \
