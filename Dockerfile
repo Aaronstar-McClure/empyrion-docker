@@ -19,8 +19,6 @@ RUN         dpkg --add-architecture i386 \
             && apt-get install -y mono-devel mono-complete \
             && useradd -m -d /home/container container
 
-RUN mono --help
-
 USER        container
 ENV         HOME /home/container
 WORKDIR     /home/container
