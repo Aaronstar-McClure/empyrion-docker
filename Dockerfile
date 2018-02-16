@@ -12,7 +12,7 @@ RUN         dpkg --add-architecture i386 \
             && apt-get update \
             && apt-get upgrade -y \
             && apt-get install netcat-traditional -y \
-            && apt-get install -y tar git wget unzip curl gcc g++ xz-utils libgdiplus lib32gcc1 lib32tinfo5 lib32z1 lib32stdc++6 libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386 iproute2 gdb xorg xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic \
+            && apt-get install -y tar git wget unzip curl gcc g++ xz-utils libgdiplus lib32gcc1 lib32tinfo5 lib32z1 lib32stdc++6 libtinfo5:i386 libncurses5:i386 libcurl3-gnutls:i386 iproute2 gdb \
             && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
             && echo "deb http://download.mono-project.com/repo/ubuntu xenial main" > /etc/apt/sources.list.d/mono-official.list \
             && apt-get update \
