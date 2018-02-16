@@ -7,8 +7,6 @@ cd /home/container
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 
-# start xvfb in the background. this is required for empyrion to start.
-xvfb &
 # Run the Server and patch to background
 ${MODIFIED_STARTUP} &
 echo "waiting for server to start before connecting telnet..."
