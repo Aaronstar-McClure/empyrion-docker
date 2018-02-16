@@ -7,6 +7,7 @@ FROM        ubuntu:16.04
 
 MAINTAINER  Pterodactyl Software, <support@pterodactyl.io>
 ENV         DEBIAN_FRONTEND noninteractive
+ENV         DISPLAY localhost:1.0
 # Install Dependencies
 RUN         dpkg --add-architecture i386 \
             && apt-get update \
