@@ -19,6 +19,7 @@ RUN         dpkg --add-architecture i386 \
             && apt-get update \
             && apt-get install -y mono-devel mono-complete \
             && useradd -m -d /home/container container
+            && chmod -r 777 /tmp
 
 USER        container
 ENV         HOME /home/container
