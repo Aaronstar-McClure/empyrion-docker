@@ -18,7 +18,7 @@ RUN         dpkg --add-architecture i386 \
             && echo "deb http://download.mono-project.com/repo/ubuntu xenial main" > /etc/apt/sources.list.d/mono-official.list \
             && apt-get update \
             && apt-get install -y mono-devel mono-complete \
-            && useradd -m -d /home/container container
+            && useradd -m -d /home/container container \
             && chmod -r 777 /tmp
 
 USER        container
