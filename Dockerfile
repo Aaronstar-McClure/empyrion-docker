@@ -21,6 +21,7 @@ RUN         dpkg --add-architecture i386 \
             && useradd -m -d /home/container container \
             && chmod -R 777 tmp
 
+COPY        ./xvfb.service /etc/systemd/system/xvfb.service
 USER        container
 ENV         HOME /home/container
 WORKDIR     /home/container
