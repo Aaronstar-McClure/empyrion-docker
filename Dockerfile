@@ -9,6 +9,7 @@ MAINTAINER  Pterodactyl Software, <support@pterodactyl.io>
 ENV         DEBIAN_FRONTEND noninteractive
 ENV         DISPLAY localhost:1.0
 # Install Dependencies
+COPY        ./xvfb.service /etc/systemd/system/xvfb.service
 RUN         dpkg --add-architecture i386 \
             && apt-get update \
             && apt-get upgrade -y \
@@ -19,10 +20,9 @@ RUN         dpkg --add-architecture i386 \
             && apt-get update \
             && apt-get install -y mono-devel mono-complete \
             && useradd -m -d /home/container container \
-            && chmod -R 777 tmp
+            && chmod -R 777 tmp \
+            && systemctl enable xvfb.service
 
-COPY        ./xvfb.service /etc/systemd/system/xvfb.service
-RUN         systemctl enable xvfb.service
 USER        container
 ENV         HOME /home/container
 WORKDIR     /home/container
